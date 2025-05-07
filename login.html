@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verification Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .verification-box {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h1 {
+      color: #d45079;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 2px solid #d45079;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+
+    button {
+      background: #d45079;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1.1em;
+      border-radius: 25px;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #b53c62;
+    }
+
+    .error {
+      color: red;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="verification-box">
+    <h1>Verify Your Identity</h1>
+    <input type="text" id="name" placeholder="Enter Full Name">
+    <input type="date" id="dob" placeholder="Enter Date of Birth">
+    <button onclick="verifyInfo()">Verify</button>
+    <p class="error" id="errorMsg"></p>
+  </div>
+
+  <script>
+    function verifyInfo() {
+      const nameInput = document.getElementById('name').value.trim().toLowerCase();
+      const dobInput = document.getElementById('dob').value;
+      const errorMsg = document.getElementById('errorMsg');
+
+      const correctName = 'priyaa dharshini';
+      const correctDOB = '2007-05-08'; // format: yyyy-mm-dd
+
+      if (nameInput === correctName && dobInput === correctDOB) {
+        window.location.href = 'new.html'; // Change to your actual next page
+      } else {
+        errorMsg.textContent = 'Incorrect name or date of birth. Please try again!';
+      }
+    }
+  </script>
+</body>
+
+</html>
